@@ -1,4 +1,4 @@
-# admin 
+# admin
 Django Admin Interface :-
 This Django application provides a basic admin interface for managing products, categories, and customers. The interface includes functionalities for adding, viewing, editing, and deleting products, categories, and customers, as well as handling file uploads for product and category images.
 
