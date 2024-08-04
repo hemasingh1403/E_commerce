@@ -1,0 +1,86 @@
+{% load my_filter %}
+{% if request.session.cust_id %}
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="{% url "index" %}">
+            MyMarket
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="">
+                <a href="{% url 'profile' %}">
+                    <img src="{{request.session.cust_id|ig}}" class="rounded-circle" height="40" width="40"> <br>{{request.session.cust_name}}
+                </a>
+                
+            </div>
+            
+           <div class="ml-2">
+            <a href="{% url 'cart' %}" class="btn btn-secondary  " role="button" >Cart</a>
+            <a class="btn btn-secondary" href="{% url 'logout' %}" role="button">LogOut</a>
+           </div>
+        </div>
+
+    </div>
+ </nav>
+
+{% else %}
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="{% url "index" %}">
+            MyMarket
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                   
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+           <div>
+            <a class="btn btn-secondary" href="{% url 'login' %}" role="button">logIn</a>
+            <a class="btn btn-secondary " href="{% url 'singup' %}" role="button">SingUp</a>
+           </div>
+        </div>
+
+    </div>
+ </nav>
+{% endif %}
+    
+
+
+
+ 

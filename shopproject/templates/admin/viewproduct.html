@@ -1,0 +1,38 @@
+{% extends "admin/dashboard.html" %}
+{% block main %}
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in prods  %} 
+          <tr>
+            <th scope="row">{{p.id}}</th>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.des}}</td>
+            {% if p.image %}
+            <td><a href="{% url 'showproduct' p.id%}"><img src="{{ p.image.url }}" alt="{{ p.name }}" height="60" width="60" class="product-img"></a></td>
+            {% else %}
+            <td>No Image Available</td>
+            {% endif %}
+            <td><a href="{% url 'editproduct' p.id%}" class=" btn btn-warning">Edit</a></td>
+            <td><a href="{% url 'deleteproduct' p.id%}" class="btn btn-danger">Delete</a></td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+{% endblock main %}

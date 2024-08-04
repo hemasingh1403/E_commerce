@@ -1,0 +1,39 @@
+{% extends "admin/dashboard.html" %}
+{% block main %}
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">fName</th>
+            <th scope="col">lName</th>
+            <th scope="col">Father name</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Phone NO.</th>
+            <th scope="col">Address</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ct in cust  %}
+          <tr>
+            <th scope="row">{{ct.id}}</th>
+            <td>{{ct.fname}}</td>
+            <td>{{ct.lname}}</td>
+            <td>{{ct.father}}</td>
+            <td>{{ct.email}}</td>
+            <td>{{ct.Phone}}</td>
+            <td>{{ct.address}}</td>
+            {% if ct.img2 %}
+            <td><img src="{{ct.img2.url}}" height="60" width="60"></td>
+            {% else %}
+            <td>No Image Available</td>
+            {% endif %}
+           <td> <a href="{% url 'deletecustomer' ct.id%}" class="btn btn-danger">Delete</a></td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+{% endblock main %}

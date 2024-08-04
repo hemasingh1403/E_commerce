@@ -1,0 +1,59 @@
+{% extends "admin/dashboard.html" %}
+{% block main %}
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-5 offset-3">
+          <div class="card mb-3">
+
+            <div class="card-body">
+
+              <div class="pt-4 pb-2">
+                <h5 class="card-title text-center pb-0 fs-4">Edit Product</h5>
+              </div>
+
+              <form class="row g-3 needs-validation" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Name</label>
+                  <input type="text" name="name" class="form-control" value="{{im.name}}">
+                </div>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Price</label>
+                  <input type="text" name="price" class="form-control" value="{{im.price}}">
+                </div>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Category</label>
+                  <select class="form-select" aria-label="Default select example"  id="category" name="category" >
+                    <option selected>Select</option>
+                    {% for c in cats %}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Description</label>
+                  {% comment %} <input type="text" class="form-control" name="des" style="height: 100px" value="{{im.des}}"> {% endcomment %}
+                  <textarea class="form-control" style="height: 100px" name="des" >{{im.des}}</textarea>
+                </div>
+                <div class="cal-12">
+                    {% if im.image%}
+                    <img src="{{im.image.url}}" height='65' width='50' alt="Current Image">
+                    {% else %}
+                  <h3>No Image Available</h3>
+                    {% endif %}
+                </div>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">New Image</label>
+                  <input class="form-control" type="file" id="img" name="img" > 
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary w-100" type="submit">Add Product</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+{% endblock main %}
