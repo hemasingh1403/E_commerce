@@ -1,6 +1,5 @@
 # admin 
-Django Admin Interface
-Overview
+Django Admin Interface :-
 This Django application provides a basic admin interface for managing products, categories, and customers. The interface includes functionalities for adding, viewing, editing, and deleting products, categories, and customers, as well as handling file uploads for product and category images.
 
 Key Features
@@ -73,8 +72,7 @@ For more details, refer to the Django documentation on handling files and sessio
 
 Feel free to modify or expand this description based on the specifics of your project and any additional features or notes you may want to include.
 # user
-Django E-commerce Application
-Overview
+Django E-commerce Application:-
 This Django-based e-commerce application provides a user interface for customers to browse products, manage their shopping cart, and update their personal profiles. It also includes authentication features for user login, registration, and password management, along with a basic cart system.
 
 Key Features
